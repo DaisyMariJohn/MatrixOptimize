@@ -105,12 +105,18 @@ def random_orthogonal_matrix(size, device):
     return q
 
 def get_orthogonal_matrix(size, mode, device=utils.DEV):
-    if mode == 'random':
-        return random_orthogonal_matrix(size, device)
-    elif mode == 'hadamard':
-        return random_hadamard_matrix(size, device)
-    else:
-        raise ValueError(f'Unknown mode {mode}')
+
+    path_to_matrix = "/root/MatrixOptimize/fake_quant/saved_tensors/orthogonal_matrix_epoch_0_T2.0_P2.0_B32.pt"
+    matrix = torch.load(path_to_matrix).to(device=device).to(dtype=torch.float64)
+    return matrix
+
+    
+    # if mode == 'random':
+    #     return random_orthogonal_matrix(size, device)
+    # elif mode == 'hadamard':
+    #     return random_hadamard_matrix(size, device)
+    # else:
+    #     raise ValueError(f'Unknown mode {mode}')
 
     
 

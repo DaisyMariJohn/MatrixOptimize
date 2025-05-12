@@ -1,4 +1,6 @@
     transformers==4.51.3
+    SentencePiece
+    protobuf
     fast_hadamard_transform
     huggingface-hub>=0.30.0
     torch==2.2.1
