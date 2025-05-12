@@ -108,7 +108,7 @@ def evaluator(model, testenc, dev, args):
             if opt_type:
                 outs[j] = layer(inps[j], attention_mask=attention_mask)[0]
             elif llama_type:
-                outs[j] = layer(inps[j], attention_mask=attention_mask, position_ids=position_ids)[0]
+                outs[j] = layer(inps[j], position_ids=position_ids)[0]
         layers[i] = layer.cpu()
         del layer
         torch.cuda.empty_cache()
